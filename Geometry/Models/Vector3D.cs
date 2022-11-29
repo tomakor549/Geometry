@@ -4,13 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Geometry.Models
+namespace Geometry.Models.R3
 {
     internal class Vector3D
     {
         public double X { get; set; }
         public double Y { get; set; }
         public double Z { get; set; }
+
+        public Vector3D Normalize()
+        {
+            return this / this.Length();
+        }
+
+        public static Vector3D Normalize(Vector3D vector3D)
+        {
+            return vector3D / vector3D.Length();
+        }
 
         public double ScalarProduct(Vector3D vector3D)
         {
@@ -72,17 +82,7 @@ namespace Geometry.Models
             };
         }
 
-        public static Vector3D operator /(Vector3D operand1, Vector3D operand2)
-        {
-            return new Vector3D
-            {
-                X = operand1.X / operand2.X,
-                Y = operand1.Y / operand2.Y,
-                Z = operand1.Z / operand2.Z
-            };
-        }
-
-        public static Vector3D operator *(Vector3D operand1, int scalar)
+        public static Vector3D operator *(Vector3D operand1, double scalar)
         {
             return new Vector3D
             {
@@ -92,7 +92,7 @@ namespace Geometry.Models
             };
         }
 
-        public static Vector3D operator /(Vector3D operand1, int scalar)
+        public static Vector3D operator /(Vector3D operand1, double scalar)
         {
             return new Vector3D
             {

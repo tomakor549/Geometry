@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Geometry.Models
+namespace Geometry.Models.R3
 {
     internal class Point3D
     {
